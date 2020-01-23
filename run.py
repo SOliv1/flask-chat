@@ -2,6 +2,7 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
+messages = []
 
 
 @app.route("/")
@@ -11,7 +12,7 @@ def index():
 
 @app.route("/<username>")
 def user(username):
-    return "Hi " + username
+    return "Welcome {0}".format(username)
 
 @app.route("/<username>/<message>")
 def send_message(username, message):
